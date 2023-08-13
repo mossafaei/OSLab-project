@@ -1,0 +1,12 @@
+[Unit]
+Description=Monitoring System Service
+After=postfix.service
+
+[Service]
+User=root
+WorkingDirectory=/root/OSLab/
+ExecStart=bash -c "while true; do bash monitor.sh; sleep 10; done"
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
